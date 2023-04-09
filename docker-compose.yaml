@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  vindinium:
+    container_name: vindinium
+    depends_on:
+      - mongodb
+    ports:
+      - "9000:9000"
+  mongodb:
+    image: mongo:4.4
+    volumes:
+      - ./var/db/:/data/db

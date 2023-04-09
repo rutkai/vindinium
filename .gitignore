@@ -4,3 +4,10 @@ logs/
 /public/bundle.*
 /client/node_modules/
 node_modules/
+/conf/application.conf
+
+# Var files
+/var/**
+!/var/db/.gitkeep
+
+/.idea

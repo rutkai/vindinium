@@ -6,14 +6,14 @@
 
 *And looking for a tavern where to drink their gold*
 
-### Warning
+### Home
 
-The vindinium dot org website has been discontinued, and the domain now belongs to Internet parasites.
+https://vindinium.idealib.net
 
 ### Installation
 
 Feel free to install a local instance for your private tournaments.
-You need [sbt](http://www.scala-sbt.org/), a MongoDB instance running, and a Unix machine (only Linux has been tested, tho).
+You need [sbt](https://www.scala-sbt.org/), a MongoDB instance running, and a Unix machine (only Linux has been tested, tho).
 
 ```sh
 git clone git://github.com/ornicar/vindinium
@@ -29,7 +29,7 @@ Vindinium is now running on `http://localhost:9000`.
 
 #### Optional reverse proxy
 
-Here's an exemple of nginx configuration:
+Here's an example of nginx configuration:
 
 ```
 server {
@@ -47,6 +47,7 @@ server {
 
 ### Developing on the Client Side stack
 
+make a copy of `conf/application.conf.dist` as `conf/application.conf`.
 while the Server runs with a `sbt run`, you can go in another terminal in the `client/` folder and:
 
 - Install once the dependencies with `npm install` (This requires nodejs to be installed)
