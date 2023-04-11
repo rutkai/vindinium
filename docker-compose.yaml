@@ -2,6 +2,8 @@ version: "3.8"
 
 services:
   vindinium:
+    build:
+      context: .
     container_name: vindinium
     depends_on:
       - mongodb
@@ -9,5 +11,6 @@ services:
       - "9000:9000"
   mongodb:
     image: mongo:4.4
+    container_name: vindinium-mongodb
     volumes:
       - ./var/db/:/data/db
