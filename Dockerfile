@@ -8,7 +8,7 @@ RUN cd client &&\
     ./build.sh
 
 
-FROM 1science/sbt:0.13.8-oracle-jre-8 as backend-build
+FROM rutkai/sbt:0.13.8-oracle-jre-8 as backend-build
 
 WORKDIR /app
 COPY . .
