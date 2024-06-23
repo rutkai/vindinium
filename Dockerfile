@@ -14,9 +14,11 @@ WORKDIR /app
 COPY . .
 COPY --from=frontend-build /app/public /app/public
 
+# Change the JDK to 8 instead of 11
 RUN apt update && \
     apt install -y unzip openjdk-8-jdk-headless && \
-    rm -rf /opt/java
+    rm -rf /opt/java && \
+    apt purge && apt autoclean
 
 RUN cp conf/application.conf.dist conf/application.conf && \
     sed -i s/localhost:27017/mongodb:27017/g conf/application.conf && \
