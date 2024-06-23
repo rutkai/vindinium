@@ -61,3 +61,15 @@ Kudos to:
 - [vjousse](https://github.com/vjousse) for the UI and testing
 - [veloce](https://github.com/veloce) for the JavaScript and testing
 - [gre](https://github.com/gre) for the shiny new JS playground
+
+### Notes from the future!
+
+The simplest way to run now on most machines is to simply run:
+
+```sh
+# Start the containers!
+docker-compose up -d
+
+# Check the logs!
+docker-compose logs -f
+```
