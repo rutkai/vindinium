@@ -64,7 +64,7 @@ Kudos to:
 
 ### Notes from the future!
 
-The simplest way to run now on most machines (linux/amd64) is to simply run:
+The simplest way to run now on most machines is to simply run:
 
 ```sh
 # Start the containers!
