@@ -9,6 +9,7 @@ services:
       - mongodb
     ports:
       - "9000:9000"
+    restart: unless-stopped
   mongodb:
     # MongoDB v4 + v5 do not support Raspbery Pi 4 CPU for ARMv8
     # MongoDB v4 works well enough under emulation but v5 does not
@@ -17,3 +18,4 @@ services:
     container_name: vindinium-mongodb
     volumes:
       - ./var/db/:/data/db
+    restart: unless-stopped
