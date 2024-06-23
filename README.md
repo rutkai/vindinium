@@ -73,9 +73,3 @@ docker-compose up -d
 # Check the logs!
 docker-compose logs -f
 ```
-
-If you want to run on an ARMv8 platform (tested on Raspberry Pi 4) you can run the ARM64 specific containers:
-
-```sh
-docker-compose -f docker-compose-arm64.yaml -- up -d
-```
