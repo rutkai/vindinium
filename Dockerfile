@@ -8,16 +8,23 @@ RUN cd client &&\
     ./build.sh
 
 
-FROM rutkai/sbt:0.13.8-oracle-jre-8 as backend-build
+FROM sbtscala/scala-sbt:eclipse-temurin-jammy-11.0.22_7_1.9.9_3.4.0 as backend-build
 
 WORKDIR /app
 COPY . .
 COPY --from=frontend-build /app/public /app/public
 
-RUN cp conf/application.conf.dist conf/application.conf &&\
-    sed -i s/localhost:27017/mongodb:27017/g conf/application.conf &&\
-    mv docker-artifacts/.ivy2 /root/ &&\
-    mv docker-artifacts/.sbt /root/
+RUN apt update && \
+    apt install -y unzip openjdk-8-jdk-headless && \
+    rm -rf /opt/java
+
+RUN cp conf/application.conf.dist conf/application.conf && \
+    sed -i s/localhost:27017/mongodb:27017/g conf/application.conf && \
+    rm -rf /home/sbtuser/.ivy2 && \
+    rm -rf /home/sbtuser/.sbt && \
+    mv docker-artifacts/.ivy2 /home/sbtuser/ && \
+    mv docker-artifacts/.sbt /home/sbtuser/ && \
+    ln -s /home/sbtuser/.ivy2 ~/.ivy2
 RUN sbt compile dist
 RUN unzip target/universal/vindinium-1.1.zip
 
